@@ -1,3 +1,6 @@
+# how to run this docker file
+# DOCKER_BUILDKIT=1 docker image build . -f packages/backend/Dockerfile --tag backstage
+
 # This dockerfile builds an image for the backend package.
 # It should be executed with the root of the repo as docker context.
 #
@@ -38,3 +41,4 @@ COPY --chown=node:node packages/backend/dist/bundle.tar.gz app-config*.yaml ./
 RUN tar xzf bundle.tar.gz && rm bundle.tar.gz
 
 CMD ["node", "packages/backend", "--config", "app-config.yaml", "--config", "app-config.production.yaml"]
+#CMD ["node", "packages/backend", "--config", "app-config.yaml", "--config"]
